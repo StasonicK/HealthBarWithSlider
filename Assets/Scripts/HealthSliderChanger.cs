@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -12,37 +13,60 @@ public class HealthSliderChanger : MonoBehaviour
     private float _maxHealth;
     private string PersonDead = "Персонаж умер";
     private string PersonFullHealth = "Персонаж имеет максимум здоровья";
+    private Coroutine _job;
 
-    void Start()
+    private void Start()
     {
         _maxHealth = _slider.maxValue;
     }
 
+    private void Update()
+    {
+        _text.text = $"{_slider.value} HP";
+        if (_job != null)
+        {
+            if (_slider.value == _maxHealth)
+            {
+                _text.text = PersonFullHealth;
+                StopCoroutine(_job);
+            }
+            else if (_slider.value == 0f)
+            {
+                _text.text = PersonDead;
+                StopCoroutine(_job);
+            }
+        }
+    }
+
     public void MinusTenHP()
     {
-        if (_slider.value <= 10.0f)
+        if (_job!=null)
         {
-            _text.text = PersonDead;
-            _slider.value = 0f;
+            StopCoroutine(_job);
         }
-        else
-        {
-            _slider.value -= 10f;
-            _text.text = $"{_slider.value} HP";
-        }
+        
+        _job = StartCoroutine(changeHP(_slider.value - 10f));
     }
 
     public void PlusTenHP()
     {
-        if (_slider.value >= _maxHealth - 10f)
+        if (_job!=null)
         {
-            _text.text = PersonFullHealth;
-            _slider.value = _maxHealth;
+            StopCoroutine(_job);
         }
-        else
+
+        _job = StartCoroutine(changeHP(_slider.value + 10f));
+    }
+
+    private IEnumerator changeHP(float targetHP)
+    {
+        var waitForOneSeconds = new WaitForSeconds(0.5f);
+
+        while (_slider.value != targetHP)
         {
-            _slider.value += 10f;
+            _slider.value = Mathf.MoveTowards(_slider.value, targetHP, 1f);
             _text.text = $"{_slider.value} HP";
+            yield return waitForOneSeconds;
         }
     }
 }
