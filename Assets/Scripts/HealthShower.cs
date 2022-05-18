@@ -12,9 +12,10 @@ public class HealthShower : MonoBehaviour
     [SerializeField] private HealthChanger _healthChanger;
 
     private float _maxHealth;
+    private Coroutine _job;
+    
     private string PersonDead = "Персонаж умер";
     private string PersonFullHealth = "Персонаж имеет максимум здоровья";
-    private Coroutine _job;
 
     private void OnEnable()
     {
