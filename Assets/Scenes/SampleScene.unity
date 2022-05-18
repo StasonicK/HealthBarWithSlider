@@ -466,7 +466,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 50
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1052,7 +1052,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1082731515}
-        m_TargetAssemblyTypeName: HealthSliderChanger, Assembly-CSharp
+        m_TargetAssemblyTypeName: HealthChanger, Assembly-CSharp
         m_MethodName: MinusTenHP
         m_Mode: 1
         m_Arguments:
@@ -1113,6 +1113,7 @@ GameObject:
   - component: {fileID: 1082731513}
   - component: {fileID: 1082731512}
   - component: {fileID: 1082731511}
+  - component: {fileID: 1082731516}
   - component: {fileID: 1082731515}
   m_Layer: 5
   m_Name: Canvas
@@ -1215,11 +1216,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1082731510}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 221caee2716d73f41acfe2568f017208, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f1f057ca2fae5b40838743a25ec64e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1082731516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082731510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ead2ff6cc2d7e9489a3b26833978d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 153148391}
   _slider: {fileID: 251482901}
+  _healthChanger: {fileID: 1082731515}
 --- !u!1 &1317711358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1418,7 +1432,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1082731515}
-        m_TargetAssemblyTypeName: HealthSliderChanger, Assembly-CSharp
+        m_TargetAssemblyTypeName: HealthChanger, Assembly-CSharp
         m_MethodName: PlusTenHP
         m_Mode: 1
         m_Arguments:
