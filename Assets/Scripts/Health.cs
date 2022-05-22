@@ -61,16 +61,5 @@ public class Health : MonoBehaviour
 
             yield return waitForOneSeconds;
         }
-
-        // if (_slider.value == _slider.maxValue)
-        // {
-        //     HealthText?.Invoke(PersonFullHealth);
-        //     yield return waitForOneSeconds;
-        // }
-        // else if (_slider.value == _slider.minValue)
-        // {
-        //     HealthText?.Invoke(PersonDead);
-        //     yield return waitForOneSeconds;
-        // }
     }
 }
