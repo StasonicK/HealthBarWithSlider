@@ -1220,7 +1220,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 251482901}
-  _timeStep: 0.5
 --- !u!114 &1082731516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1233,8 +1232,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ead2ff6cc2d7e9489a3b26833978d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _slider: {fileID: 251482901}
   _text: {fileID: 153148391}
   _health: {fileID: 1082731515}
+  _timeStep: 0.5
 --- !u!1 &1317711358
 GameObject:
   m_ObjectHideFlags: 0
