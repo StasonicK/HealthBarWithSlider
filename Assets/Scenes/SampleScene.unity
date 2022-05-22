@@ -1053,7 +1053,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1082731515}
         m_TargetAssemblyTypeName: HealthChanger, Assembly-CSharp
-        m_MethodName: MinusTenHP
+        m_MethodName: TakeDamage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1433,7 +1433,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1082731515}
         m_TargetAssemblyTypeName: HealthChanger, Assembly-CSharp
-        m_MethodName: PlusTenHP
+        m_MethodName: Heal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
