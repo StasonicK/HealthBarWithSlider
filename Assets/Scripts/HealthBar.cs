@@ -16,6 +16,7 @@ public class HealthBar : MonoBehaviour
     private const string PersonFullHealth = "Персонаж имеет максимум здоровья";
     
     private Coroutine _job;
+    public float CurrentHealth => _slider.value;
 
     private void OnEnable()
     {

@@ -1220,6 +1220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 251482901}
+  _healthBar: {fileID: 1082731516}
 --- !u!114 &1082731516
 MonoBehaviour:
   m_ObjectHideFlags: 0
