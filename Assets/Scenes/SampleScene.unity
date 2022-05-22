@@ -465,7 +465,7 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 100
-  m_WholeNumbers: 0
+  m_WholeNumbers: 1
   m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1219,6 +1219,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1f057ca2fae5b40838743a25ec64e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _slider: {fileID: 251482901}
+  _timeStep: 0.5
 --- !u!114 &1082731516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1232,7 +1234,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 153148391}
-  _slider: {fileID: 251482901}
   _health: {fileID: 1082731515}
 --- !u!1 &1317711358
 GameObject:
