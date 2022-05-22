@@ -14,16 +14,17 @@ public class HealthBar : MonoBehaviour
 
     private const string PersonDead = "Персонаж умер";
     private const string PersonFullHealth = "Персонаж имеет максимум здоровья";
+    
     private Coroutine _job;
 
     private void OnEnable()
     {
-        _health.ChangedHealth += ChangeChangedHealth;
+        _health.ChangedHealth += ChangeHealthBar;
     }
 
     private void OnDisable()
     {
-        _health.ChangedHealth -= ChangeChangedHealth;
+        _health.ChangedHealth -= ChangeHealthBar;
     }
 
     private void Start()
@@ -31,7 +32,7 @@ public class HealthBar : MonoBehaviour
         _text.text = $"{_slider.value} HP";
     }
 
-    private void ChangeChangedHealth(float targetHP)
+    private void ChangeHealthBar(float targetHP)
     {
         if (_job != null)
         {
