@@ -42,15 +42,15 @@ public class Health : MonoBehaviour
         string healthText;
         var waitForOneSeconds = new WaitForSeconds(_timeStep);
 
-        bool isNormalValue = true;
+        bool isNormalHealth = true;
 
         while (_person.CurrentHealth != targetHP)
         {
-            // if (!isNormalValue)
-            // {
-            //     yield return waitForOneSeconds;
-            //     break;
-            // }
+            if (!isNormalHealth)
+            {
+                yield return waitForOneSeconds;
+                break;
+            }
             
             float health = Mathf.MoveTowards(_person.CurrentHealth, targetHP, 1f);
             
@@ -60,14 +60,14 @@ public class Health : MonoBehaviour
             {
                 healthText = PersonFullHealth;
                 ChangedHealth?.Invoke(healthText, health);
-                isNormalValue = false;
+                isNormalHealth = false;
                 yield return waitForOneSeconds;
             }
             else if (health == 0f)
             {
                 healthText = PersonDead;
                 ChangedHealth?.Invoke(healthText, health);
-                isNormalValue = false;
+                isNormalHealth = false;
                 yield return waitForOneSeconds;
             }
             else
