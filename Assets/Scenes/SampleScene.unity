@@ -305,8 +305,9 @@ GameObject:
   m_Component:
   - component: {fileID: 237267312}
   - component: {fileID: 237267311}
+  - component: {fileID: 237267313}
   m_Layer: 0
-  m_Name: Knight_idle_01
+  m_Name: Person
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -379,6 +380,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &237267313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237267310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5b70a10670f80d48be841f098f645dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slider: {fileID: 251482901}
 --- !u!1 &251482899
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,7 +404,7 @@ GameObject:
   - component: {fileID: 251482900}
   - component: {fileID: 251482901}
   m_Layer: 5
-  m_Name: Health
+  m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1219,8 +1233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1f057ca2fae5b40838743a25ec64e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slider: {fileID: 251482901}
-  _healthBar: {fileID: 1082731516}
+  _person: {fileID: 237267313}
+  _timeStep: 0.5
 --- !u!114 &1082731516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1236,7 +1250,6 @@ MonoBehaviour:
   _slider: {fileID: 251482901}
   _text: {fileID: 153148391}
   _health: {fileID: 1082731515}
-  _timeStep: 0.5
 --- !u!1 &1317711358
 GameObject:
   m_ObjectHideFlags: 0
