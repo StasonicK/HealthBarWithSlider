@@ -1,38 +1,45 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
+    [SerializeField] private Person _person;
     [SerializeField] private Slider _slider;
-    [SerializeField] private TextMeshProUGUI _text;
-    [SerializeField] private Health _health;
+    [SerializeField] private float _delay;
+    [SerializeField] private float _changingValue = 1f;
+
+    private Coroutine _coroutine;
+    private float _normalizingValue = 100f;
 
     private void OnEnable()
     {
-        _health.ChangedHealth += ChangeHealthBar;
+        _person.ChangedHealth += OnChangedHealth;
     }
 
     private void OnDisable()
     {
-        _health.ChangedHealth -= ChangeHealthBar;
+        _person.ChangedHealth -= OnChangedHealth;
     }
 
-    private void Start()
+    private void OnChangedHealth(float value)
     {
-        _text.text = $"{_slider.value} HP";
+        if (_coroutine != null)
+            StopCoroutine(_coroutine);
+
+        _coroutine = StartCoroutine(ChangeHealth(value));
     }
 
-    private void ChangeHealthBar(string healthText, float health)
+    private IEnumerator ChangeHealth(float value)
     {
-        _text.text = healthText;
-        _slider.value = health;
-        
-        Debug.Log($"ChangeHealthBar health {health}");
-        Debug.Log($"ChangeHealthBar healthTexth {healthText}");
+        WaitForSeconds waitForSeconds = new WaitForSeconds(_delay);
+        float normalisedValue = value / _normalizingValue;
+
+        while (normalisedValue != _slider.value)
+        {
+            _slider.value = Mathf.MoveTowards(_slider.value, normalisedValue, _changingValue * Time.deltaTime);
+
+            yield return waitForSeconds;
+        }
     }
 }

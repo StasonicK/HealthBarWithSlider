@@ -1,12 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class Person : MonoBehaviour
 {
-    [SerializeField] private Slider _slider;
+    private float _health;
+    private readonly float _maxHealth = 100f;
+    private readonly float _minHealth = 0f;
 
-    public float MaxHealth => _slider.maxValue;
-    public float CurrentHealth => _slider.value;
+    public UnityAction<float> ChangedHealth;
+
+    private void Start()
+    {
+        _health = _maxHealth;
+        ChangedHealth?.Invoke(_health);
+    }
+
+    public void TakeDamage(float damage)
+    {
+        _health = Mathf.Clamp(_health - damage, _minHealth, _maxHealth);
+        ChangedHealth?.Invoke(_health);
+    }
+
+    public void Heal(float heal)
+    {
+        _health = Mathf.Clamp(_health + heal, _minHealth, _maxHealth);
+        ChangedHealth?.Invoke(_health);
+    }
 }
