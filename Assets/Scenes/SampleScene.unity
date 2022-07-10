@@ -1233,7 +1233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _person: {fileID: 237267314}
   _slider: {fileID: 251482901}
-  _delay: 0
+  _delay: 1
   _changingValue: 1
 --- !u!1 &1317711358
 GameObject:
